@@ -4,7 +4,9 @@
 
 ダイアログ部分のソースコード
 
-```java:MyDialog.java
+MyDialog.java
+
+```java
 package com.example.myapplication;
 
 import android.app.AlertDialog;
@@ -38,8 +40,9 @@ public class MyDialog extends DialogFragment {
 }
 ```
 
+MainActivity.java
 
-```java:MainActivity
+```java
 package com.example.myapplication;
 
 import android.os.Bundle;
