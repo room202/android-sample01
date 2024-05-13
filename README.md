@@ -25,6 +25,8 @@ public class MyDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 //        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity());
+
+        // ここからダイアログ作成
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("タイトル")
                 .setMessage("ここにメッセージの本文を入れる")
@@ -35,6 +37,7 @@ public class MyDialog extends DialogFragment {
                 })
                 .setNegativeButton("No", null)
                 .setNeutralButton("Cancel", null);
+        // ここまで
         return builder.create();
     }
 }
@@ -57,6 +60,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    // デフォルト部分ここから
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,12 +71,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // ここまで
 
+        // ボタンを作成
         Button btn = (Button)findViewById(R.id.button);
+        // ボタンが押されたらダイアログ表示
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyDialog dialog = new MyDialog();
+                // 実際にダイアログを表示する部分
                 dialog.show(getSupportFragmentManager(), "my_dialog");
             }
         });
